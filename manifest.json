@@ -1,7 +1,7 @@
 {
   "id": "note-pilot",
   "name": "Note Pilot",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "minAppVersion": "1.5.0",
   "description": "Connect AI providers to your notes and review file actions before applying them.",
   "author": "lowshot",
