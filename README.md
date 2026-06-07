@@ -1,15 +1,15 @@
 🌐 **Language / 언어 / 言語**: **English** | [한국어](ko/README.ko.md) | [日本語](ja/README.ja.md)
 
-# Vault Action Bridge
+# Vault Pilot
 
 AI note Q&A and reviewed vault file actions for Obsidian.
 
 ![Obsidian](https://img.shields.io/badge/Obsidian-1.5%2B-7C3AED)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 ![Desktop Only](https://img.shields.io/badge/Desktop-only-blue)
-![Providers](https://img.shields.io/badge/Providers-openai--oauth%20%7C%20OpenAI--compatible%20%7C%20Anthropic-orange)
+![Providers](https://img.shields.io/badge/Providers-openai--oauth%20%7C%20OpenAI%20%7C%20Anthropic%20%7C%20OpenRouter%20%7C%20Groq%20%7C%20Gemini%20%7C%20DeepSeek%20%7C%20Ollama-orange)
 
-Vault Action Bridge adds an AI work panel to Obsidian. It can ask a configured model about the current note or selected text, and it can turn write requests into reviewed vault actions such as creating, appending, or modifying Markdown notes.
+Vault Pilot adds an AI work panel to Obsidian. It can ask a configured model about the current note or selected text, and it can turn write requests into reviewed vault actions such as creating, appending, or modifying Markdown notes.
 
 The plugin does **not** apply AI-suggested file changes automatically. Vault changes are applied only after you review and confirm them in Obsidian.
 
@@ -22,9 +22,25 @@ The plugin does **not** apply AI-suggested file changes automatically. Vault cha
 - Open ChatGPT, Claude, and Gemini webviews from Obsidian.
 - Optional Korean or English UI labels.
 
+## Supported Connections
+
+Vault Pilot supports these connection choices:
+
+| Connection | Uses |
+| --- | --- |
+| ChatGPT subscription | Local `openai-oauth` proxy at `http://127.0.0.1:10531/v1` |
+| OpenAI | OpenAI-compatible `/chat/completions` API |
+| Anthropic Claude | Anthropic Messages API |
+| OpenRouter | OpenAI-compatible `/chat/completions` API |
+| Groq | OpenAI-compatible `/chat/completions` API |
+| Gemini API | Gemini's OpenAI-compatible endpoint |
+| DeepSeek | OpenAI-compatible `/chat/completions` API |
+| Ollama / local | Local OpenAI-compatible endpoint |
+| Custom OpenAI-compatible endpoint | Any compatible base URL and model |
+
 ## Why These Features Exist
 
-Vault Action Bridge is designed around one principle: AI can suggest changes, but the user keeps control of the vault.
+Vault Pilot is designed around one principle: AI can suggest changes, but the user keeps control of the vault.
 
 - **Current note and selection Q&A** keeps the prompt small and understandable. Instead of sending an entire vault, the plugin sends only the note or text you choose for that request.
 - **Provider presets** reduce setup mistakes. Most users should not need to remember provider URLs or whether Claude uses a different API shape.
@@ -40,7 +56,7 @@ graph TD
     Context --> Provider{Provider}
 
     Provider -->|"ChatGPT subscription"| OAuth[openai-oauth local proxy]
-    Provider -->|"OpenAI-compatible API key"| Compatible[OpenAI-compatible API]
+    Provider -->|"API key presets"| Compatible[OpenAI, OpenRouter, Groq, Gemini, DeepSeek, Ollama, Custom]
     Provider -->|"Anthropic API key"| Anthropic[Anthropic Messages API]
 
     OAuth --> Model[Model response]
@@ -58,7 +74,7 @@ graph TD
 Before the plugin is available in the Obsidian community directory, install it from a GitHub release:
 
 ```text
-VaultFolder/.obsidian/plugins/vault-action-bridge/
+VaultFolder/.obsidian/plugins/vault-pilot/
 ```
 
 Place these release assets in that folder:
@@ -69,11 +85,11 @@ manifest.json
 styles.css
 ```
 
-Restart Obsidian, then enable `Vault Action Bridge` from Settings -> Community plugins.
+Restart Obsidian, then enable `Vault Pilot` from Settings -> Community plugins.
 
 ## Provider Setup
 
-Open Settings -> Community plugins -> Vault Action Bridge and choose a connection mode.
+Open Settings -> Community plugins -> Vault Pilot and choose a connection mode.
 
 ### ChatGPT Subscription Account
 
@@ -114,7 +130,7 @@ All install and login commands run in a visible terminal after you press a butto
 
 ### API Key Providers
 
-Choose `API key provider` for:
+Choose `API key provider`, then select one of these presets:
 
 - OpenAI
 - Anthropic Claude
@@ -220,7 +236,7 @@ npm run verify
 
 ## Privacy And Security Disclosures
 
-Vault Action Bridge can send note content to external services, depending on your settings.
+Vault Pilot can send note content to external services, depending on your settings.
 
 - When you ask about the current note or selected text, that content is sent to your configured model provider.
 - If you use `openai-oauth`, prompts are sent to the local proxy URL you configure, usually `http://127.0.0.1:10531/v1`.
@@ -234,8 +250,8 @@ For vulnerability reporting and the full security model, see [SECURITY.md](SECUR
 
 ## Commands
 
-- Open Vault Action Bridge
-- Toggle Vault Action Bridge
+- Open Vault Pilot
+- Toggle Vault Pilot
 - Open ChatGPT webview
 - Open Claude webview
 - Open Gemini webview
@@ -286,7 +302,7 @@ styles.css
 The plugin ID is:
 
 ```text
-vault-action-bridge
+vault-pilot
 ```
 
 ## AI Development Disclosure

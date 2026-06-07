@@ -12,11 +12,11 @@ What user problem would this solve?
 
 ## Proposed Solution
 
-What should Vault Action Bridge do?
+What should Vault Pilot do?
 
 ## Why This Belongs In The Plugin
 
-Why should this be part of Vault Action Bridge instead of a prompt template, provider setting, or external tool?
+Why should this be part of Vault Pilot instead of a prompt template, provider setting, or external tool?
 
 ## Provider Or Vault Impact
 

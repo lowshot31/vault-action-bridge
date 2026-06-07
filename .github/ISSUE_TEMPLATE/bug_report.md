@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a reproducible problem with Vault Action Bridge
+about: Report a reproducible problem with Vault Pilot
 title: "[Bug]: "
 labels: bug
 assignees: ""
@@ -26,7 +26,7 @@ What happened instead?
 
 ## Environment
 
-- Vault Action Bridge version:
+- Vault Pilot version:
 - Obsidian version:
 - Operating system:
 - Connection mode: `openai-oauth` / API key provider / webview only

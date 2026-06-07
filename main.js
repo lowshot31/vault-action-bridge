@@ -10,8 +10,8 @@
 } = require("obsidian");
 const childProcess = require("child_process");
 
-const VIEW_TYPE_CHATGPT_BRIDGE = "chatgpt-bridge-view";
-const VIEW_TYPE_AI_WEBAPP = "chatgpt-bridge-ai-webapp-view";
+const VIEW_TYPE_VAULT_PILOT = "vault-pilot-view";
+const VIEW_TYPE_AI_WEBAPP = "vault-pilot-ai-webapp-view";
 const CHATGPT_URL = "https://chatgpt.com/";
 const AI_WEB_APPS = {
   chatgpt: {
@@ -340,8 +340,8 @@ function getPlatformLabel() {
 function buildSetupScript() {
   if (process.platform === "win32") {
     return [
-      "$Host.UI.RawUI.WindowTitle = \"Vault Action Bridge openai-oauth setup\"",
-      "Write-Host 'Vault Action Bridge openai-oauth setup'",
+      "$Host.UI.RawUI.WindowTitle = \"Vault Pilot openai-oauth setup\"",
+      "Write-Host 'Vault Pilot openai-oauth setup'",
       "Write-Host 'This visible terminal will run ChatGPT login first, then start openai-oauth.'",
       "Write-Host 'Press Ctrl+C to stop openai-oauth when you are done.'",
       "npx @openai/codex login",
@@ -349,7 +349,7 @@ function buildSetupScript() {
     ].join("; ");
   }
   return [
-    "echo 'Vault Action Bridge openai-oauth setup'",
+    "echo 'Vault Pilot openai-oauth setup'",
     "echo 'This visible terminal will run ChatGPT login first, then start openai-oauth.'",
     "echo 'Press Ctrl+C to stop openai-oauth when you are done.'",
     "npx @openai/codex login && npx openai-oauth",
@@ -359,8 +359,8 @@ function buildSetupScript() {
 function buildNodeInstallScript() {
   if (process.platform === "win32") {
     return [
-      "$Host.UI.RawUI.WindowTitle = \"Vault Action Bridge Node.js install\"",
-      "Write-Host 'Vault Action Bridge Node.js install'",
+      "$Host.UI.RawUI.WindowTitle = \"Vault Pilot Node.js install\"",
+      "Write-Host 'Vault Pilot Node.js install'",
       "Write-Host 'Detected OS: Windows'",
       "Write-Host 'This visible terminal will install Node.js LTS using winget.'",
       "Write-Host 'If Windows asks for permission, review it before accepting.'",
@@ -373,7 +373,7 @@ function buildNodeInstallScript() {
 
   if (process.platform === "darwin") {
     return [
-      "echo 'Vault Action Bridge Node.js install'",
+      "echo 'Vault Pilot Node.js install'",
       "echo 'Detected OS: macOS'",
       "if command -v node >/dev/null 2>&1 && command -v npm >/dev/null 2>&1; then echo 'Node.js is already installed.'; node --version; npm --version; exit 0; fi",
       "if command -v brew >/dev/null 2>&1; then echo 'Homebrew found. Installing Node.js...'; brew install node; else echo 'Homebrew was not found. Install Node.js manually from https://nodejs.org/ or install Homebrew first.'; fi",
@@ -382,7 +382,7 @@ function buildNodeInstallScript() {
   }
 
   return [
-    "echo 'Vault Action Bridge Node.js install'",
+    "echo 'Vault Pilot Node.js install'",
     "echo 'Detected OS: Linux'",
     "if command -v node >/dev/null 2>&1 && command -v npm >/dev/null 2>&1; then echo 'Node.js is already installed.'; node --version; npm --version; exit 0; fi",
     "echo 'Node.js/npm were not found.'",
@@ -398,8 +398,8 @@ function buildNodeInstallScript() {
 function buildToolInstallScript() {
   if (process.platform === "win32") {
     return [
-      "$Host.UI.RawUI.WindowTitle = \"Vault Action Bridge tool install\"",
-      "Write-Host 'Vault Action Bridge tool check/install'",
+      "$Host.UI.RawUI.WindowTitle = \"Vault Pilot tool install\"",
+      "Write-Host 'Vault Pilot tool check/install'",
       "Write-Host 'Detected OS: Windows'",
       "Write-Host 'Node.js and npm must already be installed.'",
       "Write-Host 'This will check for required tools and install only missing packages.'",
@@ -415,7 +415,7 @@ function buildToolInstallScript() {
   }
 
   return [
-    "echo 'Vault Action Bridge tool check/install'",
+    "echo 'Vault Pilot tool check/install'",
     "echo 'Detected OS: " + getPlatformLabel() + "'",
     "echo 'Node.js and npm must already be installed.'",
     "node --version || { echo 'node was not found. Install Node.js first.'; exit 1; }",
@@ -427,15 +427,15 @@ function buildToolInstallScript() {
 }
 
 function openOpenAiOauthSetupTerminal() {
-  openVisibleTerminal("Vault Action Bridge openai-oauth setup", buildSetupScript());
+  openVisibleTerminal("Vault Pilot openai-oauth setup", buildSetupScript());
 }
 
 function openNodeJsInstallTerminal() {
-  openVisibleTerminal("Vault Action Bridge Node.js install", buildNodeInstallScript());
+  openVisibleTerminal("Vault Pilot Node.js install", buildNodeInstallScript());
 }
 
 function openOpenAiOauthInstallTerminal() {
-  openVisibleTerminal("Vault Action Bridge tool install", buildToolInstallScript());
+  openVisibleTerminal("Vault Pilot tool install", buildToolInstallScript());
 }
 
 function openVisibleTerminal(title, script) {
@@ -539,7 +539,7 @@ const UI_TEXT = {
     vaultActionFailed: "Vault action failed",
     askingModel: "Asking model...",
     modelRequestFailed: "Model request failed",
-    settingsTitle: "Vault Action Bridge settings",
+    settingsTitle: "Vault Pilot settings",
     settingsHelp: "Use openai-oauth for a ChatGPT subscription account, or switch to an API key provider when you have a provider API key.",
     providerModeName: "Connection mode",
     providerModeDesc: "ChatGPT subscription and API key modes need different settings.",
@@ -593,7 +593,7 @@ const UI_TEXT = {
     betaWarningName: "Show beta warning",
     betaWarningDesc: "Show a warning that ChatGPT web automation can break.",
     openStartupName: "Open sidebar on startup",
-    openStartupDesc: "Open the Vault Action Bridge pane automatically when the plugin loads.",
+    openStartupDesc: "Open the Vault Pilot pane automatically when the plugin loads.",
     testing: "Checking...",
     connected: "Connection OK.",
     providerFailed: "Connection failed",
@@ -663,7 +663,7 @@ const UI_TEXT = {
     vaultActionFailed: "Vault 작업 실패",
     askingModel: "모델에 질문하는 중...",
     modelRequestFailed: "모델 요청 실패",
-    settingsTitle: "Vault Action Bridge 설정",
+    settingsTitle: "Vault Pilot 설정",
     settingsHelp: "ChatGPT 구독 계정은 openai-oauth 모드를 쓰고, API 키를 쓰는 사용자는 API 키 제공자 모드로 전환하세요.",
     providerModeName: "연동 방식",
     providerModeDesc: "구독 계정 연동과 API 키 연동은 필요한 설정이 다릅니다.",
@@ -717,7 +717,7 @@ const UI_TEXT = {
     betaWarningName: "베타 경고 표시",
     betaWarningDesc: "ChatGPT 웹 자동화가 깨질 수 있다는 안내를 표시합니다.",
     openStartupName: "시작 시 사이드바 열기",
-    openStartupDesc: "플러그인이 로드될 때 Vault Action Bridge 패널을 자동으로 엽니다.",
+    openStartupDesc: "플러그인이 로드될 때 Vault Pilot 패널을 자동으로 엽니다.",
     testing: "확인 중...",
     connected: "연결되었습니다.",
     providerFailed: "연결 실패",
@@ -1121,7 +1121,7 @@ class PromptPreviewModal extends Modal {
     const text = getUiText(this.options.uiLanguage);
     this.summaryEl.empty();
     this.summaryEl.createEl("div", {
-      cls: "chatgpt-bridge-action-summary-title",
+      cls: "vault-pilot-action-summary-title",
       text: text.changesReady(items.length),
     });
     const labelMap = {
@@ -1132,7 +1132,7 @@ class PromptPreviewModal extends Modal {
     };
     for (const item of items) {
       const itemEl = this.summaryEl.createDiv({
-        cls: `chatgpt-bridge-action-summary-item chatgpt-bridge-action-summary-item-${item.risk || "low"}`,
+        cls: `vault-pilot-action-summary-item vault-pilot-action-summary-item-${item.risk || "low"}`,
       });
       itemEl.createEl("strong", { text: labelMap[item.label] || item.label });
       itemEl.createEl("span", { text: item.path });
@@ -1167,11 +1167,11 @@ class PromptPreviewModal extends Modal {
 
     if (this.options.summaryItems && this.options.summaryItems.length) {
       const text = getUiText(this.options.uiLanguage);
-      this.summaryEl = contentEl.createDiv({ cls: "chatgpt-bridge-action-summary" });
+      this.summaryEl = contentEl.createDiv({ cls: "vault-pilot-action-summary" });
       this.renderSummary(this.options.summaryItems);
 
       if (this.options.pathBases && this.options.pathBases.length) {
-        const locationEl = contentEl.createDiv({ cls: "chatgpt-bridge-location-actions" });
+        const locationEl = contentEl.createDiv({ cls: "vault-pilot-location-actions" });
         locationEl.createEl("span", { text: text.saveLocation });
         for (const base of this.options.pathBases) {
           const button = locationEl.createEl("button", { text: base.labelKey ? text[base.labelKey] : base.label });
@@ -1187,21 +1187,21 @@ class PromptPreviewModal extends Modal {
       }
 
       const detailsEl = contentEl.createEl("details", {
-        cls: "chatgpt-bridge-action-json-details",
+        cls: "vault-pilot-action-json-details",
       });
       detailsEl.createEl("summary", { text: text.editJson });
       this.textarea = detailsEl.createEl("textarea", {
-        cls: "chatgpt-bridge-textarea chatgpt-bridge-action-json-textarea",
+        cls: "vault-pilot-textarea vault-pilot-action-json-textarea",
         text: this.initialValue,
       });
     } else {
     this.textarea = contentEl.createEl("textarea", {
-      cls: "chatgpt-bridge-textarea",
+      cls: "vault-pilot-textarea",
       text: this.initialValue,
     });
     }
 
-    const buttonRow = contentEl.createDiv({ cls: "chatgpt-bridge-modal-actions" });
+    const buttonRow = contentEl.createDiv({ cls: "vault-pilot-modal-actions" });
     const text = getUiText(this.options.uiLanguage);
     const cancelButton = buttonRow.createEl("button", { text: text.cancel });
     cancelButton.addEventListener("click", () => {
@@ -1254,11 +1254,11 @@ class ChatGptView extends ItemView {
   }
 
   getViewType() {
-    return VIEW_TYPE_CHATGPT_BRIDGE;
+    return VIEW_TYPE_VAULT_PILOT;
   }
 
   getDisplayText() {
-    return "Vault Action Bridge";
+    return "Vault Pilot";
   }
 
   getIcon() {
@@ -1272,45 +1272,45 @@ class ChatGptView extends ItemView {
   async onOpen() {
     const text = this.getText();
     this.containerEl.empty();
-    this.containerEl.addClass("chatgpt-bridge-view");
-    const shell = this.containerEl.createDiv({ cls: "chatgpt-bridge-shell" });
-    const header = shell.createDiv({ cls: "chatgpt-bridge-header" });
+    this.containerEl.addClass("vault-pilot-view");
+    const shell = this.containerEl.createDiv({ cls: "vault-pilot-shell" });
+    const header = shell.createDiv({ cls: "vault-pilot-header" });
     const titleWrap = header.createDiv();
-    titleWrap.createEl("h2", { text: "Vault Action Bridge" });
+    titleWrap.createEl("h2", { text: "Vault Pilot" });
     titleWrap.createEl("p", {
       text: text.appSubtitle,
     });
 
-    this.statusEl = header.createDiv({ cls: "chatgpt-bridge-status" });
+    this.statusEl = header.createDiv({ cls: "vault-pilot-status" });
     this.refreshStatus();
 
-    const actions = shell.createDiv({ cls: "chatgpt-bridge-actions" });
+    const actions = shell.createDiv({ cls: "vault-pilot-actions" });
     this.createActionButton(actions, text.askCurrentNote, () => this.askWithCurrentNote(false));
     this.createActionButton(actions, text.askSelection, () => this.askWithCurrentNote(true));
     this.createActionButton(actions, text.testConnection, () => this.testConnection());
 
-    const webActions = shell.createDiv({ cls: "chatgpt-bridge-actions chatgpt-bridge-web-actions" });
+    const webActions = shell.createDiv({ cls: "vault-pilot-actions vault-pilot-web-actions" });
     this.createActionButton(webActions, text.chatgptWeb, () => this.plugin.openWebApp("chatgpt"));
     this.createActionButton(webActions, text.claudeWeb, () => this.plugin.openWebApp("claude"));
     this.createActionButton(webActions, text.geminiWeb, () => this.plugin.openWebApp("gemini"));
 
-    const modelRow = shell.createDiv({ cls: "chatgpt-bridge-model-row" });
+    const modelRow = shell.createDiv({ cls: "vault-pilot-model-row" });
     modelRow.createEl("label", { text: text.model });
     this.modelSelectEl = modelRow.createEl("select", {
-      cls: "chatgpt-bridge-model-select",
+      cls: "vault-pilot-model-select",
     });
     this.modelSelectEl.addEventListener("change", () => void this.selectModel(this.modelSelectEl.value));
     this.refreshModelSelect();
 
-    this.progressEl = shell.createDiv({ cls: "chatgpt-bridge-progress" });
+    this.progressEl = shell.createDiv({ cls: "vault-pilot-progress" });
     this.progressEl.setText(text.ready);
 
-    this.messagesEl = shell.createDiv({ cls: "chatgpt-bridge-messages" });
+    this.messagesEl = shell.createDiv({ cls: "vault-pilot-messages" });
     this.appendMessage("assistant", text.introMessage);
 
-    const composer = shell.createDiv({ cls: "chatgpt-bridge-composer" });
+    const composer = shell.createDiv({ cls: "vault-pilot-composer" });
     this.inputEl = composer.createEl("textarea", {
-      cls: "chatgpt-bridge-chat-input",
+      cls: "vault-pilot-chat-input",
       attr: {
         placeholder: text.inputPlaceholder,
       },
@@ -1322,7 +1322,7 @@ class ChatGptView extends ItemView {
       event.preventDefault();
       void this.askWithCurrentNote(false);
     });
-    const composerActions = composer.createDiv({ cls: "chatgpt-bridge-composer-actions" });
+    const composerActions = composer.createDiv({ cls: "vault-pilot-composer-actions" });
     this.createActionButton(composerActions, text.askWithNote, () => this.askWithCurrentNote(false), true);
   }
 
@@ -1393,18 +1393,18 @@ class ChatGptView extends ItemView {
       return null;
     }
     const message = this.messagesEl.createDiv({
-      cls: `chatgpt-bridge-message chatgpt-bridge-message-${role}${options.pending ? " chatgpt-bridge-message-pending" : ""}`,
+      cls: `vault-pilot-message vault-pilot-message-${role}${options.pending ? " vault-pilot-message-pending" : ""}`,
     });
     message.createEl("div", {
-      cls: "chatgpt-bridge-message-role",
+      cls: "vault-pilot-message-role",
       text: role === "user" ? this.getText().you : this.getText().assistant,
     });
     const contentEl = message.createEl("div", {
-      cls: "chatgpt-bridge-message-content",
+      cls: "vault-pilot-message-content",
       text,
     });
     const copyButton = message.createEl("button", {
-      cls: "chatgpt-bridge-message-copy",
+      cls: "vault-pilot-message-copy",
       text: this.getText().copy,
     });
     copyButton.addEventListener("click", async () => {
@@ -1424,7 +1424,7 @@ class ChatGptView extends ItemView {
         this.messagesEl.scrollTop = this.messagesEl.scrollHeight;
       },
       finish: (nextText) => {
-        message.removeClass("chatgpt-bridge-message-pending");
+        message.removeClass("vault-pilot-message-pending");
         contentEl.setText(nextText);
         this.messagesEl.scrollTop = this.messagesEl.scrollHeight;
       },
@@ -1460,7 +1460,7 @@ class ChatGptView extends ItemView {
     window.clearInterval(this.progressTimer);
     this.progressTimer = null;
     if (isBusy) {
-      this.containerEl.addClass("chatgpt-bridge-busy");
+      this.containerEl.addClass("vault-pilot-busy");
       this.busyStartedAt = Date.now();
       const update = () => {
         const seconds = Math.max(0, Math.floor((Date.now() - this.busyStartedAt) / 1000));
@@ -1469,7 +1469,7 @@ class ChatGptView extends ItemView {
       update();
       this.progressTimer = window.setInterval(update, 1000);
     } else {
-      this.containerEl.removeClass("chatgpt-bridge-busy");
+      this.containerEl.removeClass("vault-pilot-busy");
       this.setProgress(this.getText().ready);
     }
   }
@@ -1607,28 +1607,28 @@ class AiWebAppView extends ItemView {
     }
     const webApp = this.getWebApp();
     this.containerEl.empty();
-    this.containerEl.addClass("chatgpt-bridge-view");
+    this.containerEl.addClass("vault-pilot-view");
     const text = getUiText(this.plugin.settings.uiLanguage);
 
-    const shell = this.containerEl.createDiv({ cls: "chatgpt-bridge-shell" });
-    const header = shell.createDiv({ cls: "chatgpt-bridge-header" });
+    const shell = this.containerEl.createDiv({ cls: "vault-pilot-shell" });
+    const header = shell.createDiv({ cls: "vault-pilot-header" });
     const titleWrap = header.createDiv();
     titleWrap.createEl("h2", { text: `${webApp.name} Web` });
     titleWrap.createEl("p", { text: webApp.url });
 
-    const actions = shell.createDiv({ cls: "chatgpt-bridge-actions" });
+    const actions = shell.createDiv({ cls: "vault-pilot-actions" });
     this.createActionButton(actions, text.bridgeChat, () => this.plugin.switchWebAppToBridge());
     this.createActionButton(actions, "ChatGPT", () => this.plugin.openWebApp("chatgpt"));
     this.createActionButton(actions, "Claude", () => this.plugin.openWebApp("claude"));
     this.createActionButton(actions, "Gemini", () => this.plugin.openWebApp("gemini"));
     this.createActionButton(actions, text.reload, () => this.reload());
 
-    const frameWrap = shell.createDiv({ cls: "chatgpt-bridge-webview-wrap" });
+    const frameWrap = shell.createDiv({ cls: "vault-pilot-webview-wrap" });
     const webview = document.createElement("webview");
-    webview.classList.add("chatgpt-bridge-webview");
+    webview.classList.add("vault-pilot-webview");
     webview.setAttribute("src", webApp.url);
     webview.setAttribute("allowpopups", "");
-    webview.setAttribute("partition", `persist:chatgpt-bridge-${webApp.id}`);
+    webview.setAttribute("partition", `persist:vault-pilot-${webApp.id}`);
     frameWrap.appendChild(webview);
     this.webviewEl = webview;
   }
@@ -1646,7 +1646,7 @@ class AiWebAppView extends ItemView {
   }
 }
 
-class ChatGptBridgeSettingTab extends PluginSettingTab {
+class VaultPilotSettingTab extends PluginSettingTab {
   constructor(app, plugin) {
     super(app, plugin);
     this.plugin = plugin;
@@ -1773,7 +1773,7 @@ class ChatGptBridgeSettingTab extends PluginSettingTab {
     containerEl.empty();
     containerEl.createEl("h2", { text: text.settingsTitle });
     containerEl.createEl("p", {
-      cls: "chatgpt-bridge-settings-help",
+      cls: "vault-pilot-settings-help",
       text: text.settingsHelp,
     });
 
@@ -1941,7 +1941,7 @@ class ChatGptBridgeSettingTab extends PluginSettingTab {
             await this.plugin.saveSettings();
           });
         input.inputEl.rows = 8;
-        input.inputEl.addClass("chatgpt-bridge-settings-textarea");
+        input.inputEl.addClass("vault-pilot-settings-textarea");
       });
 
     new Setting(containerEl)
@@ -1976,13 +1976,13 @@ class ChatGptBridgeSettingTab extends PluginSettingTab {
   }
 }
 
-class ChatGptBridgePlugin extends Plugin {
+class VaultPilotPlugin extends Plugin {
   async onload() {
     this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
     this.llmClient = new LlmClient(this.settings, createRequestUrlFetch(requestUrl));
 
     this.registerView(
-      VIEW_TYPE_CHATGPT_BRIDGE,
+      VIEW_TYPE_VAULT_PILOT,
       (leaf) => new ChatGptView(leaf, this),
     );
     this.registerView(
@@ -1990,19 +1990,19 @@ class ChatGptBridgePlugin extends Plugin {
       (leaf) => new AiWebAppView(leaf, this),
     );
 
-    this.addRibbonIcon("messages-square", "Toggle Vault Action Bridge", () => {
+    this.addRibbonIcon("messages-square", "Toggle Vault Pilot", () => {
       void this.toggleView();
     });
 
     this.addCommand({
-      id: "open-vault-action-bridge",
-      name: "Open Vault Action Bridge",
+      id: "open-vault-pilot",
+      name: "Open Vault Pilot",
       callback: () => void this.activateView(),
     });
 
     this.addCommand({
-      id: "toggle-vault-action-bridge",
-      name: "Toggle Vault Action Bridge",
+      id: "toggle-vault-pilot",
+      name: "Toggle Vault Pilot",
       callback: () => void this.toggleView(),
     });
 
@@ -2042,7 +2042,7 @@ class ChatGptBridgePlugin extends Plugin {
       callback: () => void this.applyVaultActionJsonFromClipboard(),
     });
 
-    this.addSettingTab(new ChatGptBridgeSettingTab(this.app, this));
+    this.addSettingTab(new VaultPilotSettingTab(this.app, this));
 
     if (this.settings.openViewOnStartup) {
       this.app.workspace.onLayoutReady(() => {
@@ -2052,7 +2052,7 @@ class ChatGptBridgePlugin extends Plugin {
   }
 
   async onunload() {
-    this.app.workspace.detachLeavesOfType(VIEW_TYPE_CHATGPT_BRIDGE);
+    this.app.workspace.detachLeavesOfType(VIEW_TYPE_VAULT_PILOT);
     this.app.workspace.detachLeavesOfType(VIEW_TYPE_AI_WEBAPP);
   }
 
@@ -2066,7 +2066,7 @@ class ChatGptBridgePlugin extends Plugin {
   }
 
   refreshOpenViews() {
-    for (const leaf of this.app.workspace.getLeavesOfType(VIEW_TYPE_CHATGPT_BRIDGE)) {
+    for (const leaf of this.app.workspace.getLeavesOfType(VIEW_TYPE_VAULT_PILOT)) {
       if (leaf.view && typeof leaf.view.onOpen === "function") {
         void leaf.view.onOpen();
       }
@@ -2133,11 +2133,11 @@ class ChatGptBridgePlugin extends Plugin {
   }
 
   async activateView() {
-    let leaf = this.app.workspace.getLeavesOfType(VIEW_TYPE_CHATGPT_BRIDGE)[0];
+    let leaf = this.app.workspace.getLeavesOfType(VIEW_TYPE_VAULT_PILOT)[0];
     if (!leaf) {
       leaf = this.app.workspace.getRightLeaf(false);
       await leaf.setViewState({
-        type: VIEW_TYPE_CHATGPT_BRIDGE,
+        type: VIEW_TYPE_VAULT_PILOT,
         active: true,
       });
     }
@@ -2147,7 +2147,7 @@ class ChatGptBridgePlugin extends Plugin {
 
   async openWebApp(providerId = "chatgpt") {
     const webApp = AI_WEB_APPS[providerId] || AI_WEB_APPS.chatgpt;
-    this.app.workspace.detachLeavesOfType(VIEW_TYPE_CHATGPT_BRIDGE);
+    this.app.workspace.detachLeavesOfType(VIEW_TYPE_VAULT_PILOT);
     let leaf = this.app.workspace.getLeavesOfType(VIEW_TYPE_AI_WEBAPP)[0];
     if (!leaf) {
       leaf = this.app.workspace.getRightLeaf(false);
@@ -2169,9 +2169,9 @@ class ChatGptBridgePlugin extends Plugin {
   }
 
   async toggleView() {
-    const leaves = this.app.workspace.getLeavesOfType(VIEW_TYPE_CHATGPT_BRIDGE);
+    const leaves = this.app.workspace.getLeavesOfType(VIEW_TYPE_VAULT_PILOT);
     if (leaves.length) {
-      this.app.workspace.detachLeavesOfType(VIEW_TYPE_CHATGPT_BRIDGE);
+      this.app.workspace.detachLeavesOfType(VIEW_TYPE_VAULT_PILOT);
       return null;
     }
     return this.activateView();
@@ -2403,11 +2403,11 @@ class ChatGptBridgePlugin extends Plugin {
 
   async showModelAnswer(answer) {
     const leaf = this.app.workspace.getLeaf("split");
-    const fileName = `Vault Action Bridge Answer ${new Date().toISOString().replace(/[:.]/g, "-")}.md`;
+    const fileName = `Vault Pilot Answer ${new Date().toISOString().replace(/[:.]/g, "-")}.md`;
     const file = await this.app.vault.create(fileName, answer);
     await leaf.openFile(file);
   }
 }
 
-module.exports = ChatGptBridgePlugin;
+module.exports = VaultPilotPlugin;
 

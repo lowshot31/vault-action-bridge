@@ -53,7 +53,8 @@ test("main plugin exposes an explicit openai-oauth setup terminal launcher", () 
 test("manifest is shaped for Obsidian community submission", () => {
   const manifest = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "manifest.json"), "utf8"));
 
-  assert.equal(manifest.id, "vault-action-bridge");
+  assert.equal(manifest.id, "vault-pilot");
+  assert.equal(manifest.name, "Vault Pilot");
   assert.doesNotMatch(manifest.id, /obsidian/i);
   assert.match(manifest.version, /^\d+\.\d+\.\d+$/);
   assert.equal(typeof manifest.isDesktopOnly, "boolean");
@@ -91,6 +92,20 @@ test("GitHub templates request provider and safety context", () => {
 test("README discloses provider network use and setup commands", () => {
   const readme = fs.readFileSync(path.join(__dirname, "..", "README.md"), "utf8");
 
+  for (const providerName of [
+    "ChatGPT subscription",
+    "OpenAI",
+    "Anthropic Claude",
+    "OpenRouter",
+    "Groq",
+    "Gemini API",
+    "DeepSeek",
+    "Ollama / local",
+    "Custom OpenAI-compatible endpoint",
+  ]) {
+    assert.match(readme, new RegExp(providerName.replace("/", "\\/")));
+  }
+  assert.match(readme, /Supported Connections/);
   assert.match(readme, /Anthropic Messages API/);
   assert.match(readme, /OpenAI-compatible providers use/);
   assert.match(readme, /visible terminal buttons/);
@@ -135,7 +150,7 @@ test("commands use provider-neutral ask action names", () => {
 });
 
 test("AI web apps include ChatGPT, Claude, and Gemini targets", () => {
-  assert.equal(VIEW_TYPE_AI_WEBAPP, "chatgpt-bridge-ai-webapp-view");
+  assert.equal(VIEW_TYPE_AI_WEBAPP, "vault-pilot-ai-webapp-view");
   assert.equal(AI_WEB_APPS.chatgpt.url, "https://chatgpt.com/");
   assert.equal(AI_WEB_APPS.claude.url, "https://claude.ai/new");
   assert.equal(AI_WEB_APPS.gemini.url, "https://gemini.google.com/app");
