@@ -1,0 +1,11 @@
+{
+  "name": "vault-action-bridge",
+  "version": "0.1.0",
+  "description": "Obsidian plugin for AI note Q&A and reviewed vault file actions.",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "release:check": "node scripts/release-check.js",
+    "verify": "npm test && npm run release:check"
+  }
+}

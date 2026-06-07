@@ -1,0 +1,14 @@
+node_modules/
+work/
+outputs/
+*.log
+.DS_Store
+
+# Local experimental work. Not part of the initial GitHub release.
+server/
+lib/sync-client.js
+lib/privacy-rules.js
+lib/mcp-search.js
+tests/sync-client.test.js
+tests/privacy-rules.test.js
+tests/mcp-search.test.js
