@@ -1,3 +1,5 @@
+🌐 **Language / 언어 / 言語**: **English** | [한국어](SECURITY.ko.md) | [日本語](SECURITY.ja.md)
+
 # Security Policy
 
 Vault Action Bridge is an Obsidian desktop plugin that can read selected note content, call configured model providers, and apply reviewed changes to files in the user's vault.

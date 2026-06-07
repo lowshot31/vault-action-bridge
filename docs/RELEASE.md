@@ -1,3 +1,5 @@
+🌐 **Language / 언어 / 言語**: **English** | [한국어](RELEASE.ko.md) | [日本語](RELEASE.ja.md)
+
 # Release Guide
 
 This guide explains how to prepare a GitHub release that Obsidian can install.

@@ -1,3 +1,5 @@
+🌐 **Language / 언어 / 言語**: **English** | [한국어](README.ko.md) | [日本語](README.ja.md)
+
 # Vault Action Bridge
 
 AI note Q&A and reviewed vault file actions for Obsidian.

@@ -1,3 +1,5 @@
+🌐 **Language / 언어 / 言語**: **English** | [한국어](ARCHITECTURE.ko.md) | [日本語](ARCHITECTURE.ja.md)
+
 # Architecture
 
 This document explains how Vault Action Bridge is organized and why each part exists.
