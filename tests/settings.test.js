@@ -118,6 +118,44 @@ test("README discloses provider network use and setup commands", () => {
   assert.doesNotMatch(readme, new RegExp(["self-" + "host sync", "M" + "CP server"].join("|"), "i"));
 });
 
+test("localized READMEs list every supported connection", () => {
+  const localizedReadmes = [
+    {
+      path: "ko/README.ko.md",
+      headingPattern: /## 지원 연결/,
+      presetLabelPattern: /API 키 프리셋/,
+    },
+    {
+      path: "ja/README.ja.md",
+      headingPattern: /## サポートする接続/,
+      presetLabelPattern: /APIキープリセット/,
+    },
+  ];
+
+  for (const { path: relativePath, headingPattern, presetLabelPattern } of localizedReadmes) {
+    const readme = fs.readFileSync(path.join(__dirname, "..", relativePath), "utf8");
+
+    assert.match(readme, headingPattern);
+    assert.match(readme, presetLabelPattern);
+    assert.match(readme, /Providers-openai--oauth%20%7C%20OpenAI%20%7C%20Anthropic%20%7C%20OpenRouter%20%7C%20Groq%20%7C%20Gemini%20%7C%20DeepSeek%20%7C%20Ollama-orange/);
+
+    for (const providerName of [
+      "ChatGPT",
+      "openai-oauth",
+      "OpenAI",
+      "Anthropic Claude",
+      "OpenRouter",
+      "Groq",
+      "Gemini API",
+      "DeepSeek",
+      "Ollama / local",
+      "Custom OpenAI-compatible endpoint",
+    ]) {
+      assert.match(readme, new RegExp(providerName.replace("/", "\\/")), `${relativePath} should mention ${providerName}`);
+    }
+  }
+});
+
 test("architecture and contribution docs explain extension points", () => {
   const architecture = fs.readFileSync(path.join(__dirname, "..", "docs", "ARCHITECTURE.md"), "utf8");
   const contributing = fs.readFileSync(path.join(__dirname, "..", "CONTRIBUTING.md"), "utf8");
