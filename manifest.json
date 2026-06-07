@@ -3,7 +3,7 @@
   "name": "Note Pilot",
   "version": "0.1.0",
   "minAppVersion": "1.5.0",
-  "description": "Connect AI providers to Obsidian notes and review vault file actions before applying them.",
+  "description": "Connect AI providers to  notes and review vault file actions before applying them.",
   "author": "lowshot",
   "isDesktopOnly": true
 }
