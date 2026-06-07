@@ -2,7 +2,7 @@
 
 # Contributing
 
-Thanks for helping improve Vault Action Bridge.
+Thanks for helping improve Note Pilot.
 
 This project is intentionally small: plain JavaScript, CommonJS modules, no runtime dependencies, and Node.js built-in tests. That makes the release artifact easy to inspect and keeps the plugin easier to review for Obsidian users.
 

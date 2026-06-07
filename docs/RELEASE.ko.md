@@ -80,7 +80,7 @@ Obsidian 커뮤니티 디렉터리에 제출하기 전:
 
 ## 현재 프로젝트 고유 검사
 
-Vault Action Bridge에 중요한 사항:
+Note Pilot에 중요한 사항:
 
 - 프로바이더 프리셋에 OpenAI 호환 프로바이더와 Anthropic의 직접 API 형식이 모두 포함되어 있습니다.
 - `openai-oauth` 설정 명령은 버튼 클릭 후 표시되는 터미널에서만 실행됩니다.

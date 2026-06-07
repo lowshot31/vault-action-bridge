@@ -2,7 +2,7 @@
 
 # Security Policy
 
-Vault Action Bridge is an Obsidian desktop plugin that can read selected note content, call configured model providers, and apply reviewed changes to files in the user's vault.
+Note Pilot is an Obsidian desktop plugin that can read selected note content, call configured model providers, and apply reviewed changes to files in the user's vault.
 
 ## Supported Versions
 
@@ -52,4 +52,4 @@ The plugin includes setup buttons for Node.js, Codex, and `openai-oauth`. These 
 
 ## Telemetry
 
-Vault Action Bridge does not include client-side telemetry or analytics.
+Note Pilot does not include client-side telemetry or analytics.

@@ -80,7 +80,7 @@ Before submitting to the Obsidian community directory:
 
 ## Current Project-Specific Checks
 
-These are important for Vault Action Bridge:
+These are important for Note Pilot:
 
 - Provider presets include both OpenAI-compatible providers and Anthropic's direct API shape.
 - `openai-oauth` setup commands run only in a visible terminal after a button click.

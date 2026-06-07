@@ -1,5 +1,5 @@
 {
-  "name": "vault-action-bridge",
+  "name": "note-pilot",
   "version": "0.1.0",
   "description": "Obsidian plugin for AI note Q&A and reviewed vault file actions.",
   "private": true,

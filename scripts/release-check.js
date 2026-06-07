@@ -21,7 +21,8 @@ const manifest = readJson("manifest.json");
 const packageJson = readJson("package.json");
 const versions = readJson("versions.json");
 
-assert(manifest.id === "vault-action-bridge", "manifest.json id must be vault-action-bridge.");
+assert(manifest.id === "note-pilot", "manifest.json id must be note-pilot.");
+assert(manifest.name === "Note Pilot", "manifest.json name must be Note Pilot.");
 assert(!manifest.id.includes("obsidian"), "Plugin id must not contain 'obsidian'.");
 assert(/^\d+\.\d+\.\d+$/.test(manifest.version), "manifest.json version must use x.y.z semver.");
 assert(packageJson.version === manifest.version, "package.json version must match manifest.json version.");

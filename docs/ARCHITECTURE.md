@@ -2,13 +2,13 @@
 
 # Architecture
 
-This document explains how Vault Action Bridge is organized and why each part exists.
+This document explains how Note Pilot is organized and why each part exists.
 
 The target reader is a beginner-to-intermediate developer who knows JavaScript but may be new to Obsidian plugins or AI provider APIs.
 
 ## Design Goals
 
-Vault Action Bridge has four main goals:
+Note Pilot has four main goals:
 
 1. **Keep the user in control.** AI can propose note changes, but the user must review and apply them.
 2. **Support multiple model providers.** ChatGPT subscription users, API-key users, and local-model users should all have a path.

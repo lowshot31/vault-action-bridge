@@ -39,6 +39,23 @@ test("createProviderConfig requires api key for openai-compatible providers", ()
   assert.equal(config.apiKey, "sk-test");
 });
 
+test("createProviderConfig allows Ollama local provider without an api key", () => {
+  const config = createProviderConfig({
+    provider: "openai-compatible",
+    apiProviderPreset: "ollama",
+    apiProviderType: "openai-compatible",
+    apiBaseUrl: "http://127.0.0.1:11434/v1",
+    apiModel: "llama3.1",
+    apiKey: "",
+  });
+
+  assert.equal(config.providerType, "openai-compatible");
+  assert.equal(config.baseUrl, "http://127.0.0.1:11434/v1");
+  assert.equal(config.model, "llama3.1");
+  assert.equal(config.requiresApiKey, false);
+  assert.equal(config.apiKey, "");
+});
+
 test("createProviderConfig supports Anthropic direct API providers", () => {
   const config = createProviderConfig({
     provider: "openai-compatible",

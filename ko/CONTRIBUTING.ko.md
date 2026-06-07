@@ -2,7 +2,7 @@
 
 # 기여 가이드
 
-Vault Action Bridge 개선에 도움을 주셔서 감사합니다.
+Note Pilot 개선에 도움을 주셔서 감사합니다.
 
 이 프로젝트는 의도적으로 작게 유지됩니다: 순수 JavaScript, CommonJS 모듈, 런타임 의존성 없음, Node.js 내장 테스트. 이를 통해 릴리스 아티팩트를 쉽게 검사할 수 있고, Obsidian 사용자가 플러그인을 더 쉽게 검토할 수 있습니다.
 

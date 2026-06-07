@@ -1,11 +1,11 @@
-.chatgpt-bridge-view {
+.note-pilot-view {
   display: flex;
   flex-direction: column;
   height: 100%;
   min-height: 0;
 }
 
-.chatgpt-bridge-shell {
+.note-pilot-shell {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -15,31 +15,31 @@
   color: var(--text-normal);
 }
 
-.chatgpt-bridge-header {
+.note-pilot-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
 }
 
-.chatgpt-bridge-header h2 {
+.note-pilot-header h2 {
   margin: 0;
   font-size: 18px;
 }
 
-.chatgpt-bridge-header p {
+.note-pilot-header p {
   margin: 4px 0 0;
   color: var(--text-muted);
   font-size: 12px;
   line-height: 1.4;
 }
 
-.chatgpt-bridge-settings-help {
+.note-pilot-settings-help {
   color: var(--text-muted);
   max-width: 720px;
 }
 
-.chatgpt-bridge-status {
+.note-pilot-status {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -48,43 +48,43 @@
   font-size: 12px;
 }
 
-.chatgpt-bridge-status span {
+.note-pilot-status span {
   color: var(--text-accent);
   font-weight: 600;
 }
 
-.chatgpt-bridge-status small {
+.note-pilot-status small {
   color: var(--text-faint);
   overflow-wrap: anywhere;
   text-align: right;
 }
 
-.chatgpt-bridge-actions,
-.chatgpt-bridge-composer-actions,
-.chatgpt-bridge-modal-actions {
+.note-pilot-actions,
+.note-pilot-composer-actions,
+.note-pilot-modal-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
-.chatgpt-bridge-model-row {
+.note-pilot-model-row {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
   gap: 8px;
 }
 
-.chatgpt-bridge-model-row label {
+.note-pilot-model-row label {
   color: var(--text-muted);
   font-size: 12px;
   font-weight: 600;
 }
 
-.chatgpt-bridge-model-select {
+.note-pilot-model-select {
   width: 100%;
 }
 
-.chatgpt-bridge-progress {
+.note-pilot-progress {
   min-height: 24px;
   padding: 4px 8px;
   border: 1px solid var(--background-modifier-border);
@@ -95,17 +95,17 @@
   line-height: 1.4;
 }
 
-.chatgpt-bridge-busy .chatgpt-bridge-progress {
+.note-pilot-busy .note-pilot-progress {
   color: var(--text-accent);
   border-color: var(--interactive-accent);
 }
 
-.chatgpt-bridge-web-actions {
+.note-pilot-web-actions {
   padding-bottom: 2px;
   border-bottom: 1px solid var(--background-modifier-border);
 }
 
-.chatgpt-bridge-webview-wrap {
+.note-pilot-webview-wrap {
   flex: 1;
   min-height: 320px;
   overflow: hidden;
@@ -114,14 +114,14 @@
   background: var(--background-secondary);
 }
 
-.chatgpt-bridge-webview {
+.note-pilot-webview {
   display: flex;
   width: 100%;
   height: 100%;
   border: 0;
 }
 
-.chatgpt-bridge-messages {
+.note-pilot-messages {
   flex: 1;
   min-height: 160px;
   overflow-y: auto;
@@ -134,7 +134,7 @@
   background: var(--background-secondary);
 }
 
-.chatgpt-bridge-message {
+.note-pilot-message {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -144,66 +144,66 @@
   background: var(--background-primary);
 }
 
-.chatgpt-bridge-message-user {
+.note-pilot-message-user {
   border-left: 3px solid var(--interactive-accent);
 }
 
-.chatgpt-bridge-message-assistant {
+.note-pilot-message-assistant {
   border-left: 3px solid var(--color-green);
 }
 
-.chatgpt-bridge-message-pending {
+.note-pilot-message-pending {
   color: var(--text-muted);
   background: var(--background-modifier-hover);
 }
 
-.chatgpt-bridge-message-role {
+.note-pilot-message-role {
   color: var(--text-muted);
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
 }
 
-.chatgpt-bridge-message-content {
+.note-pilot-message-content {
   white-space: pre-wrap;
   line-height: 1.5;
   user-select: text;
 }
 
-.chatgpt-bridge-message-copy {
+.note-pilot-message-copy {
   align-self: flex-end;
   padding: 2px 8px;
   font-size: 11px;
 }
 
-.chatgpt-bridge-composer {
+.note-pilot-composer {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.chatgpt-bridge-textarea,
-.chatgpt-bridge-settings-textarea,
-.chatgpt-bridge-chat-input {
+.note-pilot-textarea,
+.note-pilot-settings-textarea,
+.note-pilot-chat-input {
   width: 100%;
   min-height: 220px;
   resize: vertical;
 }
 
-.chatgpt-bridge-action-summary {
+.note-pilot-action-summary {
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin: 12px 0;
 }
 
-.chatgpt-bridge-action-summary-title {
+.note-pilot-action-summary-title {
   color: var(--text-muted);
   font-size: 12px;
   font-weight: 600;
 }
 
-.chatgpt-bridge-action-summary-item {
+.note-pilot-action-summary-item {
   display: grid;
   grid-template-columns: 120px minmax(0, 1fr);
   gap: 4px 10px;
@@ -213,32 +213,32 @@
   background: var(--background-secondary);
 }
 
-.chatgpt-bridge-action-summary-item-high {
+.note-pilot-action-summary-item-high {
   border-color: var(--text-error);
 }
 
-.chatgpt-bridge-action-summary-item strong {
+.note-pilot-action-summary-item strong {
   color: var(--text-normal);
 }
 
-.chatgpt-bridge-action-summary-item span,
-.chatgpt-bridge-action-summary-item small {
+.note-pilot-action-summary-item span,
+.note-pilot-action-summary-item small {
   overflow-wrap: anywhere;
 }
 
-.chatgpt-bridge-action-summary-item small {
+.note-pilot-action-summary-item small {
   grid-column: 2;
   color: var(--text-muted);
 }
 
-.chatgpt-bridge-action-summary-item em {
+.note-pilot-action-summary-item em {
   grid-column: 2;
   color: var(--text-error);
   font-size: 12px;
   font-style: normal;
 }
 
-.chatgpt-bridge-location-actions {
+.note-pilot-location-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -246,33 +246,33 @@
   margin: 10px 0;
 }
 
-.chatgpt-bridge-location-actions span {
+.note-pilot-location-actions span {
   color: var(--text-muted);
   font-size: 12px;
   font-weight: 600;
 }
 
-.chatgpt-bridge-action-json-details {
+.note-pilot-action-json-details {
   margin: 12px 0;
 }
 
-.chatgpt-bridge-action-json-details summary {
+.note-pilot-action-json-details summary {
   cursor: pointer;
   color: var(--text-muted);
 }
 
-.chatgpt-bridge-action-json-textarea {
+.note-pilot-action-json-textarea {
   min-height: 160px;
   margin-top: 8px;
   font-family: var(--font-monospace);
 }
 
-.chatgpt-bridge-chat-input {
+.note-pilot-chat-input {
   min-height: 84px;
 }
 
-.chatgpt-bridge-busy button,
-.chatgpt-bridge-busy textarea {
+.note-pilot-busy button,
+.note-pilot-busy textarea {
   opacity: 0.7;
   pointer-events: none;
 }
