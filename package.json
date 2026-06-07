@@ -1,7 +1,7 @@
 {
   "name": "note-pilot",
-  "version": "0.1.0",
-  "description": "Obsidian plugin for AI note Q&A and reviewed vault file actions.",
+  "version": "0.1.7",
+  "description": "AI-powered Obsidian vault assistant for Q&A and file operations with human-in-the-loop approval.",
   "private": true,
   "scripts": {
     "test": "node --test tests/*.test.js",
