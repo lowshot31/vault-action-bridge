@@ -1,4 +1,4 @@
-🌐 **Language / 언어 / 言語**: [English](SECURITY.md) | [한국어](SECURITY.ko.md) | **日本語**
+🌐 **Language / 언어 / 言語**: [English](../SECURITY.md) | [한국어](../ko/SECURITY.ko.md) | **日本語**
 
 # セキュリティポリシー
 

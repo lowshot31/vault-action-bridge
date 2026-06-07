@@ -1,4 +1,4 @@
-🌐 **Language / 언어 / 言語**: **English** | [한국어](README.ko.md) | [日本語](README.ja.md)
+🌐 **Language / 언어 / 言語**: **English** | [한국어](ko/README.ko.md) | [日本語](ja/README.ja.md)
 
 # Vault Action Bridge
 

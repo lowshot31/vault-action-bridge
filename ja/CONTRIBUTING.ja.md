@@ -1,4 +1,4 @@
-🌐 **Language / 언어 / 言語**: [English](CONTRIBUTING.md) | [한국어](CONTRIBUTING.ko.md) | **日本語**
+🌐 **Language / 언어 / 言語**: [English](../CONTRIBUTING.md) | [한국어](../ko/CONTRIBUTING.ko.md) | **日本語**
 
 # コントリビューションガイド
 
